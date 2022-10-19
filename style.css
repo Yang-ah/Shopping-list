@@ -1,3 +1,5 @@
+@import url("https://fonts.googleapis.com/css2?family=Fuzzy+Bubbles:wght@400;700&display=swap");
+
 :root {
   /* color */
   --color-black: #3f454d;
@@ -6,8 +8,105 @@
   --color-yellow: #fbbe28;
   --color-pink: #fd7f84;
   --color-light-grey: #dfdfdf;
+
+  /* size */
+  --base-space: 8px;
+  --size-button: 60px;
+  --size-border: 4px;
+  --font-size: 18px;
+  --size-thumbnail: 50px;
+  /* animation */
+  --animation-duration: 300ms;
 }
 
 * {
   box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  font-family: "Fuzzy Bubbles", cursive;
+}
+
+ul {
+  list-style: none;
+}
+
+body {
+  height: 100vh;
+  background-color: var(--color-black);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.logo {
+  cursor: pointer;
+  transition: transform var(--animation-duration) ease;
+}
+
+.btns {
+  display: flex;
+  align-items: center;
+  margin: calc(var(--base-space) * 2) 0;
+}
+
+.logo:hover,
+.btn:hover {
+  transform: scale(1.1);
+}
+
+.btn {
+  background-color: transparent;
+  border: none;
+  cursor: pointer;
+  margin-right: var(--base-space);
+  transition: transform var(--animation-duration) ease;
+}
+
+.btn:last-child {
+  margin: 0;
+}
+
+.imgBtn {
+  width: var(--size-button);
+  height: var(--size-button);
+}
+
+.colorBtn {
+  padding: calc(var(--base-space) * 2);
+  border-radius: var(--size-border);
+  font-size: var(--font-size);
+}
+
+.blue {
+  background-color: var(--color-blue);
+}
+
+.yellow {
+  background-color: var(--color-yellow);
+}
+
+.pink {
+  background-color: var(--color-pink);
+}
+
+.items {
+  width: 60%;
+  height: 60%;
+}
+
+.item {
+  background-color: var(--color-white);
+  display: flex;
+  align-items: center;
+  padding: var(--base-space);
+}
+
+.item_thumbnail {
+  width: var(--size-thumbnail);
+  margin-right: var(--base-space);
+}
+
+.item_description {
+  font-size: var(--font-size);
 }
