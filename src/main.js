@@ -13,16 +13,34 @@ function displayItems(items) {
 
 // Create HTML list item form the given data item
 function createHTMLString(item) {
-  return `<li class="item">
+  return `
+  <li class="item">
     <img src="${item.image}" alt="${item.type}" class="item_thumbnail" />
     <span class="item_description">${item.gender}, ${item.size}</span>
   </li>`;
+}
+
+function onButtonClick(event, items) {
+  const dataset = event.target.dataset;
+  const key = dataset.key;
+  const value = dataset.value;
+  if (key == null || value == null) {
+    return;
+  }
+  displayItems(items.filter((item) => item[key] === value));
+}
+
+function setEventListeners(items) {
+  const logo = document.querySelector(".logo");
+  const buttons = document.querySelector(".btns");
+  logo.addEventListener("click", () => displayItems(items));
+  buttons.addEventListener("click", (event) => onButtonClick(event, items));
 }
 
 // main
 loadItems()
   .then((items) => {
     displayItems(items);
-    // setEventListeners(items);
+    setEventListeners(items);
   })
   .catch(console.log);
